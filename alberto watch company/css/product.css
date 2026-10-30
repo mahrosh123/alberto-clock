@@ -1,0 +1,558 @@
+/*
+   1. DESIGN TOKENS
+   Change a value here and it updates everywhere on the page.
+*/
+:root {
+  /* Colors */
+  --gold: #c9a24b;
+  --gold-light: #e6c677;
+  --cream: #faf7f0;
+  --black: #101010;
+  --black-deep: #080808;
+  --gray: #6b6b6b;
+  --white: #ffffff;
+  --red: #c0392b;
+  --green: #2e9e5b;
+
+  /* Fonts */
+  --font-heading: "Cinzel", serif;
+  --font-body: "Poppins", sans-serif;
+
+  /* Effects */
+  --transition: 0.3s ease;
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/*
+   2. BASE
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #222222;
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.navbar-brand {
+  font-family: var(--font-heading);
+}
+
+a {
+  text-decoration: none;
+}
+
+.section {
+  padding: 70px 0 100px;
+}
+
+.gold-text {
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: var(--gold-light);
+}
+
+/*
+   3. NAVBAR
+*/
+/* Both bars sit together at the top of the screen */
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Bar 1: website pages */
+.main-bar {
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.97);
+}
+
+/* Bar 2: shop tools (slightly lighter, with a gold line underneath) */
+.shop-bar {
+  padding: 4px 0;
+  background: #1a1a1a;
+  border-bottom: 2px solid var(--gold);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 3px;
+  color: var(--white);
+}
+
+.navbar-brand i {
+  font-size: 28px;
+  color: var(--gold);
+}
+
+.navbar-brand small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.nav-link {
+  margin-left: 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #dddddd !important;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold) !important;
+}
+
+/* --- Icon buttons (menu, filters, cart) -------------------------------- */
+.icon-btn {
+  position: relative;
+  padding: 6px 10px;
+  font-size: 20px;
+  color: var(--white);
+  background: none;
+  border: 0;
+  transition: var(--transition);
+}
+
+.icon-btn:hover {
+  color: var(--gold);
+}
+
+/* Gold circle showing how many items are in the cart */
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 18px;
+  padding: 1px 5px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #111111;
+  background: var(--gold);
+  border-radius: 10px;
+}
+
+/* Class added by JavaScript for a short "pop" when an item is added */
+.cart-badge.bump {
+  animation: bump 0.4s;
+}
+
+@keyframes bump {
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+/*
+   4. BUTTONS
+*/
+.btn-gold {
+  padding: 10px 22px;
+  font-weight: 600;
+  color: #111111;
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  transition: var(--transition);
+}
+
+.btn-gold:hover {
+  color: #111111;
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+/*
+   5. SIDE PANELS (menu, filters, cart)
+*/
+.offcanvas {
+  background: var(--black);
+  border-color: var(--gold);
+}
+
+.offcanvas-title {
+  font-family: var(--font-heading);
+}
+
+/* Small gold heading inside a panel */
+.aside-label {
+  margin: 28px 0 12px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.aside-label:first-child {
+  margin-top: 0;
+}
+
+/* --- Menu links -------------------------------------------------------- */
+.aside-list {
+  padding: 0;
+  list-style: none;
+}
+
+.aside-list a {
+  display: block;
+  padding: 11px 8px;
+  color: #dddddd;
+  border-bottom: 1px solid #222222;
+  transition: var(--transition);
+}
+
+.aside-list a:hover,
+.aside-list a.active {
+  padding-left: 16px;
+  color: var(--gold);
+}
+
+.aside-list i {
+  margin-right: 8px;
+  color: var(--gold);
+}
+
+/* --- Sort options (filters panel) -------------------------------------- */
+.sort-option {
+  display: block;
+  padding: 12px 8px;
+  color: #dddddd;
+  border-bottom: 1px solid #222222;
+  cursor: pointer;
+}
+
+.sort-option:hover {
+  color: var(--gold);
+}
+
+.sort-option input,
+.pay-options input {
+  margin-right: 8px;
+  accent-color: var(--gold);
+}
+
+/*
+   6. PAGE HEADER
+*/
+.page-header {
+  padding: 200px 0 70px;
+  color: var(--white);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url("../images/photo-1524805444758-089113d48a6d.avif") center / cover,
+    var(--black);
+}
+
+.page-header h1 {
+  font-size: clamp(36px, 7vw, 66px);
+  color: var(--gold-light);
+}
+
+/*
+   7. PRODUCT CARDS
+*/
+.product-card {
+  height: 100%;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid #eeeeee;
+  transition: 0.4s;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px);
+}
+
+/* Dark box that holds the watch image */
+.product-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  background: radial-gradient(circle, #2b2b2b, #111111);
+}
+
+.product-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.product-card:hover .product-img img {
+  transform: scale(1.08);
+}
+
+/* While a card's image src is still empty, hide the broken image and show a note */
+.product-img img[src=""],
+.cart-row img[src=""] {
+  display: none;
+}
+
+.product-img:has(img[src=""])::after {
+  content: "Photo coming soon";
+  font-size: 13px;
+  color: #777777;
+}
+
+/* "New" / "Hot" label */
+.badge-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 3px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #111111;
+  background: var(--gold);
+}
+
+.badge-tag.hot {
+  color: var(--white);
+  background: var(--red);
+}
+
+.brand-name {
+  margin-bottom: 2px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.price {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/*
+   8. QUICK VIEW MODAL
+*/
+.modal-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+}
+
+.qv-img {
+  min-height: 280px;
+}
+
+/* Quantity selector:  [ - ] 1 [ + ] */
+.qty-box {
+  display: inline-flex;
+  border: 1px solid #cccccc;
+}
+
+.qty-box button {
+  width: 36px;
+  font-size: 18px;
+  background: none;
+  border: 0;
+}
+
+.qty-box button:hover {
+  color: var(--gold);
+}
+
+.qty-box input {
+  width: 46px;
+  text-align: center;
+  border: 0;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+}
+
+/*
+   9. CART ITEMS
+*/
+.cart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #222222;
+}
+
+.cart-row img {
+  width: 56px;
+  height: 56px;
+  padding: 4px;
+  background: #222222;
+}
+
+.cart-row .info {
+  flex: 1;
+}
+
+.cart-row small {
+  color: var(--gold);
+}
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  color: var(--white);
+  background: none;
+  border: 1px solid #555555;
+}
+
+.qty-btn:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.pay-icons {
+  margin: 18px 0 10px;
+  font-size: 18px;
+  color: var(--gold);
+}
+
+.pay-icons small {
+  font-size: 11px;
+  color: #999999;
+}
+
+.cart-total {
+  padding-top: 14px;
+  font-size: 18px;
+  border-top: 1px solid var(--gold);
+}
+
+/*
+   10. CHECKOUT MODAL
+*/
+.dark-label {
+  margin-top: 0;
+}
+
+/* Payment method choices in two columns */
+.pay-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.pay-options label {
+  padding: 12px;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+}
+
+/* Highlight the selected payment method */
+.pay-options label:has(input:checked) {
+  background: #fff6e0;
+  border-color: var(--gold);
+}
+
+/* Extra fields / notes shown for the chosen payment method */
+.pay-detail {
+  margin-bottom: 0;
+  padding: 14px;
+  font-size: 14px;
+  background: #f7f7f7;
+}
+
+/* Order summary box */
+.order-summary {
+  margin-top: 22px;
+  padding: 16px;
+  font-size: 14px;
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+}
+
+.order-summary div {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+
+.order-summary .grand {
+  margin-top: 6px;
+  padding-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border-top: 1px solid #cccccc;
+}
+
+.done-icon {
+  font-size: 70px;
+  color: var(--green);
+}
+
+/*
+   11. FOOTER
+*/
+footer {
+  padding: 50px 0 25px;
+  color: #777777;
+  background: var(--black-deep);
+}
+
+footer h3 {
+  color: var(--white);
+}
+
+footer h5 {
+  color: var(--gold);
+}
+
+footer a {
+  display: block;
+  margin-bottom: 7px;
+  color: #777777;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+/*
+   12. RESPONSIVE AND ACCESSIBILITY
+*/
+@media (max-width: 576px) {
+  .pay-options {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 175px 0 50px;
+  }
+}
+
+/* Respect users who turn off animations in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

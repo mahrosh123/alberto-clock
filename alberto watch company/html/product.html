@@ -1,0 +1,3191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alberto Watch Company | Products</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/product.css" />
+  </head>
+
+  <body>
+    <!--(two stacked bars) -->
+    <header class="site-header">
+      <!-- Bar 1: website pages -->
+      <nav class="navbar navbar-expand-lg navbar-dark main-bar">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">
+            <i class="bi bi-watch"></i>
+            ALBERTO
+            <small>WATCH COMPANY</small>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#siteLinks"
+            aria-label="Toggle website pages"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="siteLinks">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="technology.html">Technology</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Bar 2: shop tools -->
+      <nav class="navbar navbar-expand-lg navbar-dark shop-bar">
+        <div class="container">
+          <!-- Opens the menu panel -->
+          <button
+            class="icon-btn"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#menuAside"
+            aria-label="Open menu"
+          >
+            <i class="bi bi-list"></i>
+            <span class="d-none d-sm-inline"> Menu</span>
+          </button>
+
+          <!-- Collection links (data-view tells product.js what to show) -->
+          <div
+            class="collapse navbar-collapse order-last order-lg-0"
+            id="navLinks"
+          >
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-view="collection"
+                  >Our Collection</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-view="men">Men</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-view="women">Women</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-view="brands">Brands</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Opens the filters panel -->
+          <button
+            class="icon-btn ms-auto"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#filterPanel"
+            aria-label="Open filters"
+          >
+            <i class="bi bi-sliders"></i>
+            <span class="d-none d-md-inline"> Filters</span>
+          </button>
+
+          <!-- Opens the cart panel -->
+          <button
+            class="icon-btn"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cartPanel"
+            aria-label="Open cart"
+          >
+            <i class="bi bi-bag"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </button>
+
+          <!-- Mobile only: shows or hides the collection links -->
+          <button
+          s-target="#navLinks"
+            aria-label="Toggle collection links"
+          >
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+      </n  class="navbar-toggler ms-2"
+            data-bs-toggle="collapse"
+            data-bav>
+    </header>
+
+    <!-- SIDE PANELS -->
+
+    <!-- Menu panel: categories and brands -->
+    <aside
+      class="offcanvas offcanvas-start"
+      id="menuAside"
+      tabindex="-1"
+      data-bs-theme="dark"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <h6 class="aside-label">Categories</h6>
+        <ul class="aside-list">
+          <li>
+            <a href="#" data-cat="luxury"
+              ><i class="bi bi-gem"></i> Luxury Watches</a
+            >
+          </li>
+          <li>
+            <a href="#" data-cat="vintage"
+              ><i class="bi bi-clock-history"></i> Vintage Watches</a
+            >
+          </li>
+          <li>
+            <a href="#" data-cat="smart"
+              ><i class="bi bi-smartwatch"></i> Smart Watches</a
+            >
+          </li>
+        </ul>
+
+        <h6 class="aside-label">Brands</h6>
+        <ul class="aside-list">
+          <li><a href="#" data-brand="Rolex">Rolex</a></li>
+          <li><a href="#" data-brand="Michael Kors">Michael Kors</a></li>
+          <li><a href="#" data-brand="Omega">Omega</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Filters panel: sort order -->
+    <aside
+      class="offcanvas offcanvas-end"
+      id="filterPanel"
+      tabindex="-1"
+      data-bs-theme="dark"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Filters</h5>
+        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <h6 class="aside-label">Sort By</h6>
+
+        <label class="sort-option">
+          <input type="radio" name="sort" value="best" checked /> Best Selling
+        </label>
+        <label class="sort-option">
+          <input type="radio" name="sort" value="new" /> New to Old
+        </label>
+        <label class="sort-option">
+          <input type="radio" name="sort" value="old" /> Old to New
+        </label>
+        <label class="sort-option">
+          <input type="radio" name="sort" value="high" /> Price: High to Low
+        </label>
+        <label class="sort-option">
+          <input type="radio" name="sort" value="low" /> Price: Low to High
+        </label>
+      </div>
+    </aside>
+
+    <!-- Cart panel -->
+    <aside
+      class="offcanvas offcanvas-end"
+      id="cartPanel"
+      tabindex="-1"
+      data-bs-theme="dark"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Your Cart</h5>
+        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+
+      <div class="offcanvas-body d-flex flex-column">
+        <!-- Filled by product.js -->
+        <div id="cartItems" class="flex-grow-1"></div>
+
+        <div class="pay-icons">
+          <i class="bi bi-credit-card"></i>
+          <i class="bi bi-cash-coin"></i>
+          <i class="bi bi-phone"></i>
+          <i class="bi bi-bank"></i>
+          <small>Card, Cash on Delivery, Wallet, Bank Transfer</small>
+        </div>
+
+        <div class="cart-total d-flex justify-content-between">
+          <span>Subtotal</span>
+          <strong id="cartTotal">Rs. 0</strong>
+        </div>
+
+        <button class="btn btn-gold w-100 mt-3" id="checkoutBtn">
+          Proceed to Checkout
+        </button>
+      </div>
+    </aside>
+
+    <!-- PAGE CONTENT -->
+
+    <!-- Title banner (text changes with the selected view) -->
+    <section class="page-header">
+      <div class="container text-center">
+        <p class="gold-text">ALBERTO WATCH COMPANY</p>
+        <h1 id="viewTitle">Our Collection</h1>
+      </div>
+    </section>
+
+    <!-- Product grid (cards are created by product.js) -->
+    <main class="section">
+      <div class="container">
+        <p class="text-secondary mb-4" id="resultCount"></p>
+        <div class="row g-4" id="productGrid">
+          <!-- Our Collection (no brand): 50 watches -->
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="1"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="127000"
+            data-sold="58"
+            data-date="2025-01-03"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men1.avif" alt="Classic Gold" />
+              </div>
+              <div class="p-3">
+                <h5>Classic Gold</h5>
+                <p class="price">Rs. 127,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="2"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="155000"
+            data-sold="44"
+            data-date="2025-01-17"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men2.webp" alt="Midnight Black" />
+              </div>
+              <div class="p-3">
+                <h5>Midnight Black</h5>
+                <p class="price">Rs. 155,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="3"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="113000"
+            data-sold="29"
+            data-date="2024-07-14"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img src="../images/women/women1.webp" alt="Elegance" />
+              </div>
+              <div class="p-3">
+                <h5>Elegance</h5>
+                <p class="price">Rs. 113,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="4"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="94000"
+            data-sold="81"
+            data-date="2024-09-14"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women2.webp" alt="Pearl Dress" />
+              </div>
+              <div class="p-3">
+                <h5>Pearl Dress</h5>
+                <p class="price">Rs. 94,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="5"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="93000"
+            data-sold="164"
+            data-date="2024-04-21"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img src="../images/men/men3.webp" alt="Ocean Blue" />
+              </div>
+              <div class="p-3">
+                <h5>Ocean Blue</h5>
+                <p class="price">Rs. 93,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="6"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="167000"
+            data-sold="169"
+            data-date="2024-07-02"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men4.jpg" alt="Emerald Classic" />
+              </div>
+              <div class="p-3">
+                <h5>Emerald Classic</h5>
+                <p class="price">Rs. 167,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="7"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="114000"
+            data-sold="31"
+            data-date="2026-03-10"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women3.jpg" alt="Golden Hour" />
+              </div>
+              <div class="p-3">
+                <h5>Golden Hour</h5>
+                <p class="price">Rs. 114,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="8"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="140000"
+            data-sold="56"
+            data-date="2026-02-19"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women4.jpg" alt="Silver Lady" />
+              </div>
+              <div class="p-3">
+                <h5>Silver Lady</h5>
+                <p class="price">Rs. 140,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="9"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="125000"
+            data-sold="163"
+            data-date="2026-03-04"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men5.webp" alt="Royal Chrono" />
+              </div>
+              <div class="p-3">
+                <h5>Royal Chrono</h5>
+                <p class="price">Rs. 125,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="10"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="161000"
+            data-sold="166"
+            data-date="2026-04-12"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men6.avif" alt="Noble Steel" />
+              </div>
+              <div class="p-3">
+                <h5>Noble Steel</h5>
+                <p class="price">Rs. 161,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="11"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="98000"
+            data-sold="160"
+            data-date="2026-02-19"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women5.jpg" alt="Aurora Rose" />
+              </div>
+              <div class="p-3">
+                <h5>Aurora Rose</h5>
+                <p class="price">Rs. 98,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="12"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="93000"
+            data-sold="178"
+            data-date="2024-08-22"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img src="../images/men/men7.jpg" alt="Regal Dress" />
+              </div>
+              <div class="p-3">
+                <h5>Regal Dress</h5>
+                <p class="price">Rs. 93,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="13"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="155000"
+            data-sold="129"
+            data-date="2025-08-19"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men8.jpg" alt="Summit Automatic" />
+              </div>
+              <div class="p-3">
+                <h5>Summit Automatic</h5>
+                <p class="price">Rs. 155,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="14"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="144000"
+            data-sold="112"
+            data-date="2025-04-26"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men9.webp" alt="Imperial Gold" />
+              </div>
+              <div class="p-3">
+                <h5>Imperial Gold</h5>
+                <p class="price">Rs. 144,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="15"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="109000"
+            data-sold="198"
+            data-date="2024-02-19"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women6.jpg" alt="Crown Slim" />
+              </div>
+              <div class="p-3">
+                <h5>Crown Slim</h5>
+                <p class="price">Rs. 109,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="16"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="124000"
+            data-sold="154"
+            data-date="2025-06-24"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men10.jpg" alt="Eclipse Black" />
+              </div>
+              <div class="p-3">
+                <h5>Eclipse Black</h5>
+                <p class="price">Rs. 124,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="17"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="144000"
+            data-sold="93"
+            data-date="2026-02-04"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women7.jpg" alt="Opal Dress" />
+              </div>
+              <div class="p-3">
+                <h5>Opal Dress</h5>
+                <p class="price">Rs. 144,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="18"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="152000"
+            data-sold="127"
+            data-date="2024-06-05"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women8.jpg" alt="Sapphire Blue" />
+              </div>
+              <div class="p-3">
+                <h5>Sapphire Blue</h5>
+                <p class="price">Rs. 152,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="19"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="149000"
+            data-sold="127"
+            data-date="2024-02-25"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img src="../images/men/men11.webp" alt="Titan Steel" />
+              </div>
+              <div class="p-3">
+                <h5>Titan Steel</h5>
+                <p class="price">Rs. 149,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="20"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="158000"
+            data-sold="166"
+            data-date="2025-06-23"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men12.webp" alt="Monarch Chrono" />
+              </div>
+              <div class="p-3">
+                <h5>Monarch Chrono</h5>
+                <p class="price">Rs. 158,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="21"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="131000"
+            data-sold="172"
+            data-date="2025-08-03"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img src="../images/women/women9.avif" alt="Velvet Night" />
+              </div>
+              <div class="p-3">
+                <h5>Velvet Night</h5>
+                <p class="price">Rs. 131,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="22"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="97000"
+            data-sold="89"
+            data-date="2025-02-02"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women10.jpg" alt="Radiance" />
+              </div>
+              <div class="p-3">
+                <h5>Radiance</h5>
+                <p class="price">Rs. 97,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="23"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="181000"
+            data-sold="199"
+            data-date="2025-08-10"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men13.webp" alt="Prestige Automatic" />
+              </div>
+              <div class="p-3">
+                <h5>Prestige Automatic</h5>
+                <p class="price">Rs. 181,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="24"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="179000"
+            data-sold="118"
+            data-date="2026-06-01"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women11.avif" alt="Diamond Edge" />
+              </div>
+              <div class="p-3">
+                <h5>Diamond Edge</h5>
+                <p class="price">Rs. 179,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="25"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="men"
+            data-price="146000"
+            data-sold="110"
+            data-date="2024-02-16"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men14.jpg" alt="Skyline Blue" />
+              </div>
+              <div class="p-3">
+                <h5>Skyline Blue</h5>
+                <p class="price">Rs. 146,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="26"
+            data-brand=""
+            data-cat="luxury"
+            data-gender="women"
+            data-price="93000"
+            data-sold="75"
+            data-date="2025-03-24"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img src="../images/women/women12.jpg" alt="Duchess" />
+              </div>
+              <div class="p-3">
+                <h5>Duchess</h5>
+                <p class="price">Rs. 93,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="27"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="women"
+            data-price="71000"
+            data-sold="121"
+            data-date="2025-08-03"
+            data-desc="Domed crystal and a gently aged look. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women13.webp" alt="Rose Vintage" />
+              </div>
+              <div class="p-3">
+                <h5>Rose Vintage</h5>
+                <p class="price">Rs. 71,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="28"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="men"
+            data-price="66000"
+            data-sold="134"
+            data-date="2025-09-09"
+            data-desc="Slim profile from a classic era. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men15.jpg" alt="Heritage 1975" />
+              </div>
+              <div class="p-3">
+                <h5>Heritage 1975</h5>
+                <p class="price">Rs. 66,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="29"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="men"
+            data-price="64000"
+            data-sold="130"
+            data-date="2026-05-23"
+            data-desc="Serviced movement with a one-year guarantee. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men16.avif" alt="Vintage Pilot" />
+              </div>
+              <div class="p-3">
+                <h5>Vintage Pilot</h5>
+                <p class="price">Rs. 64,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="30"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="women"
+            data-price="82000"
+            data-sold="111"
+            data-date="2026-07-08"
+            data-desc="Pressed numerals and a slim bezel. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img
+                  src="../images/women/women14.webp"
+                  alt="Retro Square 1962"
+                />
+              </div>
+              <div class="p-3">
+                <h5>Retro Square 1962</h5>
+                <p class="price">Rs. 82,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="31"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="men"
+            data-price="65000"
+            data-sold="41"
+            data-date="2024-03-08"
+            data-desc="Hand-wound movement and a cream dial. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men17.jpg" alt="Heritage 1958" />
+              </div>
+              <div class="p-3">
+                <h5>Heritage 1958</h5>
+                <p class="price">Rs. 65,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="32"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="men"
+            data-price="70000"
+            data-sold="23"
+            data-date="2025-03-09"
+            data-desc="Restored case with an original-style finish. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men18.jpg" alt="Classic 1969" />
+              </div>
+              <div class="p-3">
+                <h5>Classic 1969</h5>
+                <p class="price">Rs. 70,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="33"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="women"
+            data-price="73000"
+            data-sold="21"
+            data-date="2024-07-18"
+            data-desc="Domed crystal and a gently aged look. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img
+                  src="../images/women/women15.jpg"
+                  alt="Antique Gold 1950"
+                />
+              </div>
+              <div class="p-3">
+                <h5>Antique Gold 1950</h5>
+                <p class="price">Rs. 73,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="34"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="men"
+            data-price="79000"
+            data-sold="176"
+            data-date="2026-06-05"
+            data-desc="Slim profile from a classic era. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men19.jpg" alt="Retro Round 1971" />
+              </div>
+              <div class="p-3">
+                <h5>Retro Round 1971</h5>
+                <p class="price">Rs. 79,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="35"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="women"
+            data-price="89000"
+            data-sold="178"
+            data-date="2026-01-15"
+            data-desc="Serviced movement with a one-year guarantee. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/women16.webp" alt="Nostalgia 1964" />
+              </div>
+              <div class="p-3">
+                <h5>Nostalgia 1964</h5>
+                <p class="price">Rs. 89,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="36"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="men"
+            data-price="92000"
+            data-sold="120"
+            data-date="2025-07-13"
+            data-desc="Pressed numerals and a slim bezel. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men20.jpg" alt="Legacy 1980" />
+              </div>
+              <div class="p-3">
+                <h5>Legacy 1980</h5>
+                <p class="price">Rs. 92,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="37"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="men"
+            data-price="62000"
+            data-sold="143"
+            data-date="2026-07-02"
+            data-desc="Hand-wound movement and a cream dial. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/men21.jpg" alt="Old Town 1955" />
+              </div>
+              <div class="p-3">
+                <h5>Old Town 1955</h5>
+                <p class="price">Rs. 62,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="38"
+            data-brand=""
+            data-cat="vintage"
+            data-gender="women"
+            data-price="67000"
+            data-sold="37"
+            data-date="2024-08-06"
+            data-desc="Restored case with an original-style finish. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/women/women17.avif"
+                  alt="Vintage Lady 1966"
+                />
+              </div>
+              <div class="p-3">
+                <h5>Vintage Lady 1966</h5>
+                <p class="price">Rs. 67,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="39"
+            data-brand=""
+            data-cat="smart"
+            data-gender="men"
+            data-price="42000"
+            data-sold="107"
+            data-date="2026-01-04"
+            data-desc="Sleep tracking and 30 sport modes. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img src="../images/men/smart1.webp" alt="Smart One" />
+              </div>
+              <div class="p-3">
+                <h5>Smart One</h5>
+                <p class="price">Rs. 42,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="40"
+            data-brand=""
+            data-cat="smart"
+            data-gender="women"
+            data-price="35000"
+            data-sold="165"
+            data-date="2024-09-04"
+            data-desc="Bright always-on screen. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img src="../images/women/women18.jpg" alt="Smart Lite" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Lite</h5>
+                <p class="price">Rs. 35,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="41"
+            data-brand=""
+            data-cat="smart"
+            data-gender="men"
+            data-price="59000"
+            data-sold="177"
+            data-date="2024-02-28"
+            data-desc="Calls and message alerts on your wrist. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/smart2.webp" alt="Smart Active" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Active</h5>
+                <p class="price">Rs. 59,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="42"
+            data-brand=""
+            data-cat="smart"
+            data-gender="women"
+            data-price="49000"
+            data-sold="177"
+            data-date="2025-03-21"
+            data-desc="Water-resistant and fast charging. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/smart1.jpg" alt="Smart Fit Pro" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Fit Pro</h5>
+                <p class="price">Rs. 49,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="43"
+            data-brand=""
+            data-cat="smart"
+            data-gender="men"
+            data-price="52000"
+            data-sold="108"
+            data-date="2026-06-16"
+            data-desc="AMOLED display with a 7-day battery. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/smart3.webp" alt="Smart Max" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Max</h5>
+                <p class="price">Rs. 52,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="44"
+            data-brand=""
+            data-cat="smart"
+            data-gender="women"
+            data-price="43000"
+            data-sold="49"
+            data-date="2025-08-16"
+            data-desc="Built-in GPS and heart-rate monitor. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/smart2.jpg" alt="Smart Slim" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Slim</h5>
+                <p class="price">Rs. 43,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="45"
+            data-brand=""
+            data-cat="smart"
+            data-gender="men"
+            data-price="67000"
+            data-sold="99"
+            data-date="2024-03-04"
+            data-desc="Sleep tracking and 30 sport modes. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/smart4.webp" alt="Smart Sport" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Sport</h5>
+                <p class="price">Rs. 67,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="46"
+            data-brand=""
+            data-cat="smart"
+            data-gender="women"
+            data-price="57000"
+            data-sold="209"
+            data-date="2025-08-27"
+            data-desc="Bright always-on screen. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/smart3.webp" alt="Smart Luxe" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Luxe</h5>
+                <p class="price">Rs. 57,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="47"
+            data-brand=""
+            data-cat="smart"
+            data-gender="men"
+            data-price="46000"
+            data-sold="152"
+            data-date="2024-04-17"
+            data-desc="Calls and message alerts on your wrist. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img src="../images/men/smart5.jpg" alt="Smart Pulse" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Pulse</h5>
+                <p class="price">Rs. 46,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="48"
+            data-brand=""
+            data-cat="smart"
+            data-gender="women"
+            data-price="59000"
+            data-sold="57"
+            data-date="2026-09-01"
+            data-desc="Water-resistant and fast charging. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img src="../images/women/smart4.jpg" alt="Smart Glow" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Glow</h5>
+                <p class="price">Rs. 59,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="49"
+            data-brand=""
+            data-cat="smart"
+            data-gender="men"
+            data-price="55000"
+            data-sold="184"
+            data-date="2024-05-17"
+            data-desc="AMOLED display with a 7-day battery. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/smart6.jpg" alt="Smart Trek" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Trek</h5>
+                <p class="price">Rs. 55,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="50"
+            data-brand=""
+            data-cat="smart"
+            data-gender="women"
+            data-price="59000"
+            data-sold="62"
+            data-date="2025-04-18"
+            data-desc="Built-in GPS and heart-rate monitor. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/smart5.jpg" alt="Smart Mini" />
+              </div>
+              <div class="p-3">
+                <h5>Smart Mini</h5>
+                <p class="price">Rs. 59,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rolex: 17 watches -->
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="51"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="2086000"
+            data-sold="219"
+            data-date="2026-06-21"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex1.webp" alt="Submariner Date" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Submariner Date</h5>
+                <p class="price">Rs. 2,086,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="52"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="1418000"
+            data-sold="176"
+            data-date="2024-04-27"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/rolex13.jpg" alt="Datejust 36" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Datejust 36</h5>
+                <p class="price">Rs. 1,418,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="53"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1790000"
+            data-sold="209"
+            data-date="2024-04-17"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img src="../images/men/rolex2.jpg" alt="Datejust 41" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Datejust 41</h5>
+                <p class="price">Rs. 1,790,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="54"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="1983000"
+            data-sold="111"
+            data-date="2026-01-01"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/rolex14.jpg" alt="Lady-Datejust" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Lady-Datejust</h5>
+                <p class="price">Rs. 1,983,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="55"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1536000"
+            data-sold="140"
+            data-date="2025-04-23"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img src="../images/men/rolex3.jpg" alt="Day-Date 40" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Day-Date 40</h5>
+                <p class="price">Rs. 1,536,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="56"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="2219000"
+            data-sold="108"
+            data-date="2025-06-12"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex4.jpg" alt="Explorer" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Explorer</h5>
+                <p class="price">Rs. 2,219,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="57"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1119000"
+            data-sold="76"
+            data-date="2024-04-16"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex5.webp" alt="Explorer II" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Explorer II</h5>
+                <p class="price">Rs. 1,119,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="58"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1363000"
+            data-sold="106"
+            data-date="2024-08-20"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex6.webp" alt="GMT-Master II" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>GMT-Master II</h5>
+                <p class="price">Rs. 1,363,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="59"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="2230000"
+            data-sold="20"
+            data-date="2025-06-26"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex7.webp" alt="Sea-Dweller" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Sea-Dweller</h5>
+                <p class="price">Rs. 2,230,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="60"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="2299000"
+            data-sold="41"
+            data-date="2026-02-13"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex8.jpg" alt="Yacht-Master" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Yacht-Master</h5>
+                <p class="price">Rs. 2,299,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="61"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1368000"
+            data-sold="142"
+            data-date="2024-07-26"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex9.webp" alt="Milgauss" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Milgauss</h5>
+                <p class="price">Rs. 1,368,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="62"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="2283000"
+            data-sold="105"
+            data-date="2024-07-15"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img src="../images/men/rolex10.avif" alt="Air-King" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Air-King</h5>
+                <p class="price">Rs. 2,283,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="63"
+            data-brand="Rolex"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1792000"
+            data-sold="210"
+            data-date="2024-03-06"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex11.png" alt="Cosmograph Daytona" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Cosmograph Daytona</h5>
+                <p class="price">Rs. 1,792,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="64"
+            data-brand="Rolex"
+            data-cat="vintage"
+            data-gender="men"
+            data-price="447000"
+            data-sold="27"
+            data-date="2024-08-26"
+            data-desc="Restored case with an original-style finish. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex12.avif" alt="Oyster 1968" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Oyster 1968</h5>
+                <p class="price">Rs. 447,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="65"
+            data-brand="Rolex"
+            data-cat="vintage"
+            data-gender="women"
+            data-price="724000"
+            data-sold="57"
+            data-date="2026-08-22"
+            data-desc="Domed crystal and a gently aged look. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/rolex15.jpg" alt="Oyster Lady 1972" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Oyster Lady 1972</h5>
+                <p class="price">Rs. 724,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="66"
+            data-brand="Rolex"
+            data-cat="vintage"
+            data-gender="women"
+            data-price="872000"
+            data-sold="109"
+            data-date="2024-09-18"
+            data-desc="Slim profile from a classic era. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/women/rolex16.jpg" alt="Datejust 1975" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Datejust 1975</h5>
+                <p class="price">Rs. 872,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="67"
+            data-brand="Rolex"
+            data-cat="vintage"
+            data-gender="men"
+            data-price="449000"
+            data-sold="25"
+            data-date="2024-02-17"
+            data-desc="Serviced movement with a one-year guarantee. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/rolex6.webp" alt="Submariner 1969" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Rolex</p>
+                <h5>Submariner 1969</h5>
+                <p class="price">Rs. 449,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Omega: 17 watches -->
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="68"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1206000"
+            data-sold="55"
+            data-date="2025-04-27"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/0124e8290dbd34d44ec156cd86df9aa8.jpg"
+                  alt="Seamaster 300"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Seamaster 300</h5>
+                <p class="price">Rs. 1,206,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="69"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="641000"
+            data-sold="27"
+            data-date="2025-04-10"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/01c3928f13310196a19ec4189c7766f7.jpg"
+                  alt="Seamaster Planet Ocean"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Seamaster Planet Ocean</h5>
+                <p class="price">Rs. 641,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="70"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="946000"
+            data-sold="81"
+            data-date="2026-06-09"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img
+                  src="../images/GENTS/09c7beeec2caf3fe2fdae4396acb0241.jpg"
+                  alt="Seamaster Aqua Terra"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Seamaster Aqua Terra</h5>
+                <p class="price">Rs. 946,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="71"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="991000"
+            data-sold="127"
+            data-date="2024-01-24"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/287ef2392ef8c40377fbe7f9d42380dc.jpg"
+                  alt="Seamaster Diver 300M"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Seamaster Diver 300M</h5>
+                <p class="price">Rs. 991,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="72"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="791000"
+            data-sold="137"
+            data-date="2026-09-14"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img
+                  src="../images/GENTS/2e47da942cc4464a6d4022f3114ef8fb.jpg"
+                  alt="Speedmaster Moonwatch"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Speedmaster Moonwatch</h5>
+                <p class="price">Rs. 791,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="73"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="946000"
+            data-sold="53"
+            data-date="2026-03-17"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/37ab5b0261507c31921468de8556b6d3.jpg"
+                  alt="Speedmaster Racing"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Speedmaster Racing</h5>
+                <p class="price">Rs. 946,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="74"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="955000"
+            data-sold="24"
+            data-date="2025-03-20"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/01a941973fa59c452970ea29a65c4a70.jpg"
+                  alt="Constellation"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Constellation</h5>
+                <p class="price">Rs. 955,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="75"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="424000"
+            data-sold="218"
+            data-date="2024-03-05"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/09d3289fa49643a25b133df49ac957d2.jpg"
+                  alt="Constellation Pearl"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Constellation Pearl</h5>
+                <p class="price">Rs. 424,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="76"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="916000"
+            data-sold="178"
+            data-date="2026-02-18"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/3fc5a348b81875200f5226a514d37eed.jpg"
+                  alt="Constellation Globemaster"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Constellation Globemaster</h5>
+                <p class="price">Rs. 916,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="77"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="485000"
+            data-sold="103"
+            data-date="2026-09-17"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/11a4276e85dd231061640fbbc20abb5d.jpg"
+                  alt="De Ville Prestige"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>De Ville Prestige</h5>
+                <p class="price">Rs. 485,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="78"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="1002000"
+            data-sold="143"
+            data-date="2024-09-02"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/3feecf69da93a8758d8658735182b053.jpg"
+                  alt="De Ville Tresor"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>De Ville Tresor</h5>
+                <p class="price">Rs. 1,002,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="79"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="681000"
+            data-sold="68"
+            data-date="2025-01-25"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img
+                  src="../images/LADIES/167effa2ad5b7cc49110959919cceda4.jpg"
+                  alt="De Ville Ladymatic"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>De Ville Ladymatic</h5>
+                <p class="price">Rs. 681,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="80"
+            data-brand="Omega"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="522000"
+            data-sold="149"
+            data-date="2025-09-01"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/42f9f1de8e42ff64bbbc08a4e8d6d7b6.jpg"
+                  alt="Railmaster"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Railmaster</h5>
+                <p class="price">Rs. 522,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="81"
+            data-brand="Omega"
+            data-cat="vintage"
+            data-gender="women"
+            data-price="459000"
+            data-sold="36"
+            data-date="2025-06-20"
+            data-desc="Restored case with an original-style finish. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/17e439da591932268bf2c316fa488649.jpg"
+                  alt="De Ville 1972"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>De Ville 1972</h5>
+                <p class="price">Rs. 459,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="82"
+            data-brand="Omega"
+            data-cat="vintage"
+            data-gender="men"
+            data-price="393000"
+            data-sold="175"
+            data-date="2026-04-23"
+            data-desc="Domed crystal and a gently aged look. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/4e7961ddec4d2d44329ce7360b3d0b20.jpg"
+                  alt="Geneve 1969"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Geneve 1969</h5>
+                <p class="price">Rs. 393,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="83"
+            data-brand="Omega"
+            data-cat="vintage"
+            data-gender="men"
+            data-price="333000"
+            data-sold="135"
+            data-date="2026-09-26"
+            data-desc="Slim profile from a classic era. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/5b88c37293c58d1172702e1711420a97.jpg"
+                  alt="Seamaster 1966"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Seamaster 1966</h5>
+                <p class="price">Rs. 333,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="84"
+            data-brand="Omega"
+            data-cat="vintage"
+            data-gender="women"
+            data-price="385000"
+            data-sold="149"
+            data-date="2024-09-09"
+            data-desc="Serviced movement with a one-year guarantee. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/1ebb59c4c0ceca8e7ff278e1d27e6dcb.jpg"
+                  alt="Constellation 1964"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Omega</p>
+                <h5>Constellation 1964</h5>
+                <p class="price">Rs. 385,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Michael Kors: 17 watches -->
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="85"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="79000"
+            data-sold="71"
+            data-date="2025-03-14"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/777842794022c5d252b7c02b82a954f0.jpg"
+                  alt="Lexington Chrono"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Lexington Chrono</h5>
+                <p class="price">Rs. 79,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="86"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="50000"
+            data-sold="120"
+            data-date="2025-06-03"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/7a3dd498030c98f52532bca02a9ef48a.jpg"
+                  alt="Oversized Lexington"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Oversized Lexington</h5>
+                <p class="price">Rs. 50,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="87"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="86000"
+            data-sold="81"
+            data-date="2025-02-07"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img
+                  src="../images/GENTS/7e6730a1ba332e9a93f9b254e0239e82.jpg"
+                  alt="Lexington Gold"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Lexington Gold</h5>
+                <p class="price">Rs. 86,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="88"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="86000"
+            data-sold="97"
+            data-date="2024-03-23"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/GENTS/84fdca4e629e041a7f286712523a82b2.jpg"
+                  alt="Layton Chrono"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Layton Chrono</h5>
+                <p class="price">Rs. 86,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="89"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="men"
+            data-price="84000"
+            data-sold="189"
+            data-date="2025-03-09"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag">New</span>
+                <img
+                  src="../images/GENTS/8737c6ee852f4d9d6ae8d7af3ed23633.jpg"
+                  alt="Gage Chrono"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Gage Chrono</h5>
+                <p class="price">Rs. 84,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="90"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="51000"
+            data-sold="139"
+            data-date="2024-02-13"
+            data-desc="Genuine leather strap with a deployant clasp. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/43cf970d6cd4a7c4349441e316084285.jpg"
+                  alt="Bradshaw"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Bradshaw</h5>
+                <p class="price">Rs. 51,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="91"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="74000"
+            data-sold="61"
+            data-date="2026-04-06"
+            data-desc="Sapphire-coated glass and a polished case. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/48be1efa6872379475839c8fcb77d721.jpg"
+                  alt="Runway"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Runway</h5>
+                <p class="price">Rs. 74,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="92"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="88000"
+            data-sold="130"
+            data-date="2026-07-11"
+            data-desc="Automatic movement with a sunburst dial. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/50ea196d4686986e79972d6e74ca799e.jpg"
+                  alt="Slim Runway"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Slim Runway</h5>
+                <p class="price">Rs. 88,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="93"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="70000"
+            data-sold="70"
+            data-date="2025-06-03"
+            data-desc="100m water resistance and a steel bracelet. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/52eaffdb0f567c8be21d774b5522cbe1.jpg"
+                  alt="Parker"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Parker</h5>
+                <p class="price">Rs. 70,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="94"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="89000"
+            data-sold="113"
+            data-date="2024-06-18"
+            data-desc="Slim case with applied hour markers. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/579697762fda8fa9e6a7df0a98820196.jpg"
+                  alt="Darci"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Darci</h5>
+                <p class="price">Rs. 89,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="95"
+            data-brand="Michael Kors"
+            data-cat="luxury"
+            data-gender="women"
+            data-price="72000"
+            data-sold="132"
+            data-date="2026-01-13"
+            data-desc="Date window and a luminous hand set. A refined luxury timepiece built to last for generations."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/5f8eb046d580a5cfe1307d3fc9b5bac7.jpg"
+                  alt="Camille"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Camille</h5>
+                <p class="price">Rs. 72,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="96"
+            data-brand="Michael Kors"
+            data-cat="vintage"
+            data-gender="women"
+            data-price="43000"
+            data-sold="152"
+            data-date="2026-05-17"
+            data-desc="Pressed numerals and a slim bezel. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <span class="badge-tag hot">Hot</span>
+                <img
+                  src="../images/LADIES/62f58e4b6116c9262c346714d005af37.jpg"
+                  alt="Pyper Retro"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Pyper Retro</h5>
+                <p class="price">Rs. 43,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="97"
+            data-brand="Michael Kors"
+            data-cat="vintage"
+            data-gender="women"
+            data-price="39000"
+            data-sold="48"
+            data-date="2024-02-03"
+            data-desc="Hand-wound movement and a cream dial. Classic vintage styling inspired by the golden age of watchmaking."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../images/LADIES/721b7dac487aa3ccab1d2ae19b9db12d.jpg"
+                  alt="Portia Retro"
+                />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Portia Retro</h5>
+                <p class="price">Rs. 39,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="98"
+            data-brand="Michael Kors"
+            data-cat="smart"
+            data-gender="women"
+            data-price="77000"
+            data-sold="89"
+            data-date="2024-03-09"
+            data-desc="Built-in GPS and heart-rate monitor. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/LADIES/fd4b1844e110a24e32eff917601f00c0.jpg" alt="Access Gen 6" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Access Gen 6</h5>
+                <p class="price">Rs. 77,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="99"
+            data-brand="Michael Kors"
+            data-cat="smart"
+            data-gender="men"
+            data-price="93000"
+            data-sold="53"
+            data-date="2025-05-13"
+            data-desc="Sleep tracking and 30 sport modes. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/smart8.jpg" alt="Access Bradshaw" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Access Bradshaw</h5>
+                <p class="price">Rs. 93,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="100"
+            data-brand="Michael Kors"
+            data-cat="smart"
+            data-gender="men"
+            data-price="73000"
+            data-sold="157"
+            data-date="2026-08-23"
+            data-desc="Bright always-on screen. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/men/smart9.jpg" alt="Access Lexington" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Access Lexington</h5>
+                <p class="price">Rs. 73,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-4 col-xl-3 product"
+            data-id="101"
+            data-brand="Michael Kors"
+            data-cat="smart"
+            data-gender="women"
+            data-price="79000"
+            data-sold="42"
+            data-date="2025-01-26"
+            data-desc="Calls and message alerts on your wrist. A modern smartwatch for health tracking, calls and notifications."
+          >
+            <div class="product-card">
+              <div class="product-img">
+                <img src="../images/LADIES/fe7ce79742fe4be4d36c8bc65ce26b7f.jpg" alt="Access Runway" />
+              </div>
+              <div class="p-3">
+                <p class="brand-name">Michael Kors</p>
+                <h5>Access Runway</h5>
+                <p class="price">Rs. 79,000</p>
+                <button class="btn btn-sm btn-outline-dark quick-view">
+                  Quick View
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- MODALS -->
+
+    <!-- Quick view -->
+    <div class="modal fade" id="quickModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <button class="btn-close modal-x" data-bs-dismiss="modal"></button>
+
+          <div class="row g-0">
+            <!-- Watch image -->
+            <div class="col-md-5 product-img qv-img">
+              <img id="qvImg" alt="" />
+            </div>
+
+            <!-- Watch details -->
+            <div class="col-md-7 p-4">
+              <p class="brand-name" id="qvBrand"></p>
+              <h3 id="qvName"></h3>
+              <p class="text-secondary" id="qvDesc"></p>
+              <p class="price fs-4" id="qvPrice"></p>
+
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span>Quantity</span>
+                <div class="qty-box">
+                  <button type="button" id="qvMinus">−</button>
+                  <input id="qvQty" value="1" readonly />
+                  <button type="button" id="qvPlus">+</button>
+                </div>
+              </div>
+
+              <button class="btn btn-gold w-100" id="qvAdd">
+                <i class="bi bi-bag-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Checkout</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <!-- Step 1: details and payment -->
+            <form id="checkoutForm" novalidate>
+              <h6 class="aside-label dark-label">Delivery Details</h6>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input
+                    class="form-control"
+                    id="fName"
+                    placeholder="Full name"
+                  />
+                  <div class="invalid-feedback">Enter your name.</div>
+                </div>
+                <div class="col-md-6">
+                  <input
+                    class="form-control"
+                    id="fPhone"
+                    placeholder="Phone (e.g. 0300 1234567)"
+                  />
+                  <div class="invalid-feedback">
+                    Enter a valid phone number.
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    id="fAddress"
+                    placeholder="Street address"
+                  />
+                  <div class="invalid-feedback">Enter your address.</div>
+                </div>
+                <div class="col-md-4">
+                  <input class="form-control" id="fCity" placeholder="City" />
+                  <div class="invalid-feedback">Enter your city.</div>
+                </div>
+              </div>
+
+              <h6 class="aside-label dark-label">Payment Method</h6>
+              <div class="pay-options">
+                <label
+                  ><input type="radio" name="pay" value="cod" checked />
+                  <i class="bi bi-cash-coin"></i> Cash on Delivery</label
+                >
+                <label
+                  ><input type="radio" name="pay" value="card" />
+                  <i class="bi bi-credit-card"></i> Credit / Debit Card</label
+                >
+                <label
+                  ><input type="radio" name="pay" value="wallet" />
+                  <i class="bi bi-phone"></i> Easypaisa / JazzCash</label
+                >
+                <label
+                  ><input type="radio" name="pay" value="bank" />
+                  <i class="bi bi-bank"></i> Bank Transfer</label
+                >
+              </div>
+
+              <!-- Extra details: only the chosen method's box is shown -->
+              <div class="pay-detail d-none" id="payCard">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <input
+                      class="form-control"
+                      id="cNum"
+                      placeholder="Card number"
+                      inputmode="numeric"
+                      maxlength="19"
+                    />
+                    <div class="invalid-feedback">
+                      Enter a 16-digit card number.
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <input
+                      class="form-control"
+                      id="cExp"
+                      placeholder="MM/YY"
+                      maxlength="5"
+                    />
+                    <div class="invalid-feedback">Use MM/YY.</div>
+                  </div>
+                  <div class="col-6">
+                    <input
+                      class="form-control"
+                      id="cCvv"
+                      placeholder="CVV"
+                      inputmode="numeric"
+                      maxlength="4"
+                    />
+                    <div class="invalid-feedback">3 or 4 digits.</div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="pay-detail d-none" id="payWallet">
+                Send payment to <strong>0300 1234567</strong> and keep the
+                receipt. We'll confirm by phone.
+              </p>
+
+              <p class="pay-detail d-none" id="payBank">
+                Bank details will be shared on your confirmation call.
+              </p>
+
+              <!-- Filled by product.js -->
+              <div class="order-summary" id="orderSummary"></div>
+
+              <button class="btn btn-gold w-100 mt-3" type="submit">
+                Place Order
+              </button>
+            </form>
+
+            <!-- Step 2: confirmation -->
+            <div id="orderDone" class="text-center d-none py-4">
+              <i class="bi bi-check-circle done-icon"></i>
+              <h4>Thank you for your order!</h4>
+              <p class="mb-1">
+                Your order number is <strong id="orderNo"></strong>
+              </p>
+              <p class="text-secondary" id="orderMsg"></p>
+              <button class="btn btn-gold" data-bs-dismiss="modal">
+                Continue Shopping
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>ALBERTO</h3>
+            <p>Timeless craftsmanship. Modern precision.</p>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <a href="../index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About</a>
+            <a href="technology.html">Technology</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Contact</h5>
+            <p>Karachi, Pakistan</p>
+            <p>+92 21 111 555 555</p>
+            <p>info@albertowatches.com</p>
+          </div>
+        </div>
+
+        <hr />
+        <p class="text-center">
+          © 2026 Alberto Watch Company. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts (order matters: jQuery, then Bootstrap, then our file) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/product.js"></script>
+  </body>
+</html>

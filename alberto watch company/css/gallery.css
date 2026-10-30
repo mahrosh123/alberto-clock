@@ -1,0 +1,573 @@
+:root {
+  --gold: #c9a24b;
+  --gold-light: #e6c677;
+  --cream: #faf7f0;
+  --black: #101010;
+  --black-deep: #080808;
+  --gray: #6b6b6b;
+  --white: #ffffff;
+  --red: #c0392b;
+  --green: #2e9e5b;
+
+  --font-heading: "Cinzel", serif;
+  --font-body: "Poppins", sans-serif;
+
+  --section-padding: 90px;
+  --transition: 0.3s ease;
+  --shadow-soft: 0 6px 24px rgba(0, 0, 0, 0.07);
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+.gallery-page {
+  color: #f2ede0;
+  background: #0c0c0c;
+}
+
+/* NAVBAR */
+
+.navbar {
+  padding: 15px 0;
+  background: rgba(0, 0, 0, 0.9);
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  padding: 9px 0;
+  background: rgba(0, 0, 0, 0.97);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 3px;
+  color: var(--white);
+}
+
+.navbar-brand i {
+  font-size: 30px;
+  color: var(--gold);
+}
+
+.navbar-brand small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.nav-link {
+  margin-left: 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #dddddd !important;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold) !important;
+}
+
+.gallery-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  padding: 165px 0 100px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    url("../images/COUPLE/075c9c860eb36e32497fc3b6082b5c7b.jpg") center / cover
+      no-repeat,
+    radial-gradient(circle at 50% 30%, #3a2c0e, #0b0b0b 70%);
+}
+
+.hero-film {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark layer that keeps the text easy to read and fades into the page at the bottom */
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.35) 50%,
+    #0c0c0c 100%
+  );
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-text h1 {
+  margin: 15px 0;
+  font-size: clamp(48px, 9vw, 110px);
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.hero-text h1 span {
+  display: block;
+  color: var(--gold-light);
+}
+
+.hero-text .gold-text,
+.hero-text .lead-text {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+}
+
+.hero-chips {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.hero-chips strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  color: var(--gold-light);
+}
+
+.hero-chips span {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #dddddd;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  z-index: 2;
+  font-size: 24px;
+  color: var(--gold);
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
+/* 3. FILTER BAR (sits between the hero and the photos) */
+
+.gallery-toolbar {
+  padding: 18px 0;
+  background: #101010;
+  border-top: 1px solid #292826;
+  border-bottom: 1px solid #292826;
+}
+
+.gallery-toolbar .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #aaa18d;
+  background: none;
+  border: 1px solid #38352c;
+  transition: var(--transition);
+}
+
+.filter-btn span {
+  margin-left: 6px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: #111111;
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  color: var(--gold);
+  transform: translateY(-50%);
+}
+
+.search-box input {
+  width: min(260px, 80vw);
+  padding: 9px 12px 9px 36px;
+  color: #f2ede0;
+  background: #151515;
+  border: 1px solid #38352c;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: var(--gold);
+}
+
+.results-line {
+  margin: 0 0 25px;
+  font-size: 13px;
+  color: #a29d90;
+}
+
+.empty-note {
+  padding: 50px 0;
+  text-align: center;
+  color: #a29d90;
+}
+
+/* 4. PHOTO GRID */
+
+.gallery-section {
+  padding: 40px 0 80px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 50px;
+}
+
+/* One photo: an arch-shaped gold frame */
+.photo-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  overflow: hidden;
+  background: #151515;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 200px 200px 14px 14px;
+  cursor: zoom-in;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+  animation: card-in 0.6s both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.photo-card:hover {
+  border-color: var(--gold);
+  box-shadow:
+    0 0 10px rgba(212, 175, 55, 0.7),
+    0 0 28px rgba(212, 175, 55, 0.3);
+}
+
+.photo-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Shine that sweeps across the photo on hover */
+.photo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    115deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.14) 45%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.8s;
+  pointer-events: none;
+}
+
+.photo-card:hover::before {
+  transform: translateX(130%);
+}
+
+/* Name and zoom icon that slide up on hover */
+.photo-card figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  padding: 40px 12px 16px;
+  text-align: center;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+  transform: translateY(100%);
+  transition: transform 0.4s;
+}
+
+.photo-card:hover figcaption,
+.photo-card:focus-visible figcaption {
+  transform: none;
+}
+
+.photo-card small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.photo-card span {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  color: #f2ede0;
+}
+
+/* 5. FULL-SCREEN VIEWER */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.94);
+}
+
+.lightbox.open {
+  display: flex;
+  animation: fade-in 0.3s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.lb-figure {
+  max-width: 88vw;
+  margin: 0;
+  text-align: center;
+}
+
+.lb-figure img {
+  max-width: 100%;
+  max-height: 78vh;
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+}
+
+.lb-figure figcaption {
+  margin-top: 14px;
+  font-family: var(--font-heading);
+  color: #f2ede0;
+}
+
+.lb-figure small {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  color: #a29d90;
+}
+
+.lb-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  color: var(--gold);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.lb-btn:hover {
+  color: #111111;
+  background: var(--gold);
+}
+
+.lb-close {
+  top: 20px;
+  right: 20px;
+}
+.lb-prev {
+  left: 20px;
+}
+.lb-next {
+  right: 20px;
+}
+
+/* 6. FILMS */
+
+.films-section {
+  padding: 90px 0;
+  background: #101010;
+  border-top: 1px solid #292826;
+}
+
+.film-card {
+  margin: 0;
+  padding: 10px;
+  background: #151515;
+  border: 1px solid #292826;
+  transition: var(--transition);
+}
+
+.film-card:hover {
+  border-color: var(--gold);
+}
+
+.film-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #050505;
+}
+
+.film-card figcaption {
+  padding: 14px 6px 6px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--gold-light);
+}
+
+.film-card i {
+  margin-right: 8px;
+}
+
+/* 7. CALL TO ACTION */
+
+.gallery-cta {
+  padding: 80px 0;
+  color: #ffffff;
+  background: linear-gradient(120deg, #1d1707, #0c0c0c);
+  border-top: 1px solid var(--gold);
+}
+
+.gallery-cta p {
+  margin: 12px 0 25px;
+  color: #bbbbbb;
+}
+footer {
+  padding: 50px 0 25px;
+  color: #777777;
+  background: var(--black-deep);
+}
+
+footer h3 {
+  color: var(--white);
+}
+
+footer h5 {
+  color: var(--gold);
+}
+
+footer a {
+  display: block;
+  margin-bottom: 7px;
+  color: #777777;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+/* 8. RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .photo-card {
+    border-radius: 120px 120px 12px 12px;
+  }
+
+  /* No hover on phones, so the name is always visible */
+  .photo-card figcaption {
+    transform: none;
+  }
+
+  .hero-chips {
+    gap: 22px;
+  }
+
+  .lb-prev {
+    left: 8px;
+  }
+  .lb-next {
+    right: 8px;
+  }
+}
+
+@media (max-width: 420px) {
+  .photo-grid {
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-card {
+    animation: none;
+  }
+}

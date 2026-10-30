@@ -1,0 +1,989 @@
+/* 1. DESIGN TOKENS
+   Change a value here and it updates everywhere on the page. */
+
+:root {
+  --gold: #c9a24b;
+  --gold-light: #e6c677;
+  --cream: #faf7f0;
+  --black: #101010;
+  --black-deep: #080808;
+  --gray: #6b6b6b;
+  --white: #ffffff;
+
+  --font-heading: "Cinzel", serif;
+  --font-body: "Poppins", sans-serif;
+
+  --section-padding: 100px;
+  --transition: 0.3s ease;
+  --shadow-soft: 0 6px 24px rgba(0, 0, 0, 0.07);
+  --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. BASE */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #222222;
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.navbar-brand {
+  font-family: var(--font-heading);
+}
+
+a {
+  text-decoration: none;
+}
+
+.gold-text {
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: var(--gold-light);
+}
+
+/* 3. SCROLL BAR */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+
+/* 4. NAVBAR */
+
+.navbar {
+  padding: 18px 0;
+  transition: var(--transition);
+}
+
+/* Class added by JavaScript after scrolling down */
+.navbar.scrolled {
+  padding: 9px 0;
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 3px;
+  color: var(--white);
+}
+
+.navbar-brand i {
+  font-size: 30px;
+  color: var(--gold);
+}
+
+.navbar-brand small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.nav-link {
+  margin-left: 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #dddddd !important;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold) !important;
+}
+
+/* Dark background for the opened menu on phones */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    margin-top: 12px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.95);
+  }
+}
+
+/* 5. BUTTONS */
+
+.btn-gold {
+  padding: 10px 24px;
+  font-weight: 600;
+  color: #111111;
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  transition: var(--transition);
+}
+
+.btn-gold.btn-lg {
+  padding: 13px 30px;
+  font-size: 16px;
+}
+
+.btn-gold:hover {
+  color: #111111;
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(201, 162, 75, 0.45);
+}
+
+.hero .btn-outline-light {
+  padding: 13px 30px;
+}
+
+/* 6. HERO (3D watch) */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--white);
+  background: radial-gradient(circle at 70% 50%, #2f2410 0%, #0b0b0b 65%);
+}
+
+/* The canvas fills the whole hero. The 3D watch is drawn inside it. */
+#heroCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Darker on the left so the text is easy to read */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.4) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 90px;
+  pointer-events: none;
+}
+
+/* Let buttons and links still be clicked */
+.hero-content a {
+  pointer-events: auto;
+}
+
+.hero h1 {
+  margin: 20px 0;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    var(--gold-light),
+    var(--gold),
+    var(--gold-light)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.hero-description {
+  max-width: 480px;
+  margin-bottom: 30px;
+  line-height: 1.9;
+  color: #dddddd;
+}
+
+.hero-facts {
+  display: flex;
+  gap: 35px;
+  margin-top: 45px;
+}
+
+.hero-facts strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--gold-light);
+}
+
+.hero-facts span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #aaaaaa;
+}
+
+/* Live date and time under the hero facts */
+.live-clock {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-top: 30px;
+  padding: 10px 18px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #cccccc;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(201, 162, 75, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+.live-clock i {
+  color: var(--gold);
+}
+
+.live-clock strong {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  z-index: 2;
+  font-size: 24px;
+  color: var(--gold);
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
+/* 7. MOVING STRIP */
+
+.marquee {
+  overflow: hidden;
+  padding: 18px 0;
+  background: var(--black);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  font-family: var(--font-heading);
+  letter-spacing: 6px;
+  color: var(--gold-light);
+  animation: slide 30s linear infinite;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 8. SECTIONS AND TITLES */
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.dark-section {
+  padding: var(--section-padding) 0;
+  color: var(--white);
+  background: var(--black);
+}
+
+.section-title {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.section-title > span {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+.section-title h2 {
+  margin-top: 12px;
+  font-size: 42px;
+}
+
+.section-title h2 strong {
+  color: var(--gold);
+}
+
+.section-title p {
+  max-width: 650px;
+  margin: 15px auto 0;
+  line-height: 1.8;
+  color: var(--gray);
+}
+
+.section-title.light h2 {
+  color: var(--white);
+}
+
+.section-title.light p {
+  color: #aaaaaa;
+}
+
+/* 9. COLLECTION CARDS */
+
+.collection-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 380px;
+  padding: 35px;
+  overflow: hidden;
+  color: var(--white);
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.3s;
+}
+
+.collection-card:hover {
+  color: var(--white);
+  box-shadow: var(--shadow-hover);
+}
+
+.collection-card.luxury {
+  background: linear-gradient(160deg, #3a2d0f, #0e0e0e);
+}
+.collection-card.vintage {
+  background: linear-gradient(160deg, #4a3624, #120e0a);
+}
+.collection-card.smart {
+  background: linear-gradient(160deg, #12283a, #0a0e12);
+}
+
+/* Large faded icon in the corner */
+.collection-card > i {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 110px;
+  color: var(--gold);
+  opacity: 0.25;
+  transition: 0.5s;
+}
+
+.collection-card:hover > i {
+  opacity: 0.55;
+  transform: rotate(-12deg) scale(1.1);
+}
+
+.collection-card h3 {
+  font-size: 30px;
+}
+
+.collection-card p {
+  color: #cccccc;
+}
+
+.collection-card span {
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+/* 10. MOVEMENT SECTION (3D gears) */
+
+.gear-box {
+  height: 420px;
+  background: radial-gradient(circle, #231c0c, #101010 70%);
+  border: 1px solid #2c2415;
+}
+
+#gearCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.text-lg-start p {
+  margin-left: 0;
+}
+
+.point-list {
+  padding: 0;
+  list-style: none;
+}
+
+.point-list li {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.point-list li > i {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  font-size: 22px;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+}
+
+.point-list h5 {
+  margin-bottom: 4px;
+  font-size: 17px;
+}
+
+.point-list p {
+  margin: 0;
+  font-size: 14px;
+  color: #aaaaaa;
+}
+
+/* 11. NUMBERS BAND */
+
+.stats-band {
+  padding: 70px 0;
+  color: #111111;
+  background: linear-gradient(
+    120deg,
+    var(--gold),
+    var(--gold-light),
+    var(--gold)
+  );
+}
+
+.stats-band h3 {
+  font-size: 46px;
+}
+
+.stats-band p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 12. FEATURE BOXES */
+
+.feature-box {
+  height: 100%;
+  padding: 40px 28px;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid #eeeeee;
+  transition: 0.4s;
+}
+
+.feature-box:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-10px);
+}
+
+.feature-box i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  color: var(--gold);
+  background: #fff6e0;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.feature-box:hover i {
+  color: #111111;
+  background: var(--gold);
+}
+
+.feature-box h4 {
+  margin: 20px 0 10px;
+  font-size: 18px;
+}
+
+.feature-box p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--gray);
+}
+
+/* 13. JOURNEY */
+
+.journey {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* The gold line behind the dots */
+.journey::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gold);
+}
+
+.journey-item {
+  position: relative;
+  padding-top: 40px;
+}
+
+.journey-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border: 4px solid var(--black);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.journey .year {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  color: var(--gold-light);
+}
+
+.journey p {
+  margin-top: 6px;
+  color: #bbbbbb;
+}
+
+/* 14. TESTIMONIALS */
+
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(201, 162, 75, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(201, 162, 75, 0.15),
+      transparent 40%
+    ),
+    var(--cream);
+}
+
+/* Huge faded quote mark in the background */
+.testimonials::before {
+  content: "\201C";
+  position: absolute;
+  top: -40px;
+  left: 3%;
+  font-family: var(--font-heading);
+  font-size: 420px;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.testimonials .container {
+  position: relative;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  color: var(--gold);
+}
+
+/* Left card: average rating */
+.rating-card {
+  height: 100%;
+  padding: 40px 32px;
+  color: var(--white);
+  text-align: center;
+  background: linear-gradient(160deg, #1d1707, #0d0d0d);
+  border: 1px solid var(--gold);
+  box-shadow: var(--shadow-hover);
+}
+
+.rating-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+.rating-number {
+  font-family: var(--font-heading);
+  font-size: 90px;
+  line-height: 1.1;
+  color: var(--gold-light);
+}
+
+.rating-card .stars {
+  justify-content: center;
+  font-size: 20px;
+}
+
+.rating-note {
+  margin: 10px 0 28px;
+  font-size: 13px;
+  color: #aaaaaa;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #cccccc;
+}
+
+.rating-row span:first-child {
+  width: 52px;
+  text-align: left;
+}
+
+.rating-row span:last-child {
+  width: 36px;
+  text-align: right;
+}
+
+.rating-row .bar {
+  flex: 1;
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 6px;
+}
+
+.rating-row .bar div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 6px;
+}
+
+/* Right side: review cards */
+.review-card {
+  position: relative;
+  min-height: 330px;
+  padding: 45px 45px 35px;
+  background: var(--white);
+  border-top: 4px solid var(--gold);
+  box-shadow: var(--shadow-hover);
+}
+
+.review-card .quote-mark {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  font-size: 80px;
+  color: var(--gold);
+  opacity: 0.25;
+}
+
+.review-text {
+  margin: 20px 0 30px;
+  font-size: 21px;
+  font-style: italic;
+  line-height: 1.8;
+  color: #333333;
+}
+
+.author {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid #eeeeee;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: #111111;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #fff6e0;
+}
+
+.author h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 17px;
+}
+
+.author small {
+  color: var(--gray);
+}
+
+.verified {
+  margin-left: auto;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1e6b3d;
+  background: #e8f6ee;
+  border-radius: 20px;
+}
+
+/* Arrows and dots under the review */
+.review-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.review-arrow {
+  width: 46px;
+  height: 46px;
+  color: var(--gold);
+  background: none;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.review-arrow:hover {
+  color: #111111;
+  background: var(--gold);
+}
+
+.carousel-indicators button {
+  width: 10px !important;
+  height: 10px !important;
+  margin: 0 5px;
+  background-color: var(--gold) !important;
+  border-radius: 50%;
+}
+
+/* 15. NEWSLETTER */
+
+.newsletter {
+  padding: 90px 0;
+  color: var(--white);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    radial-gradient(circle at 20% 20%, #4a3910, #000);
+}
+
+.newsletter p {
+  color: #bbbbbb;
+}
+
+.newsletter form {
+  max-width: 520px;
+  margin: 25px auto 0;
+}
+
+.newsletter .form-control {
+  padding: 13px;
+  border-radius: 0;
+}
+
+/* 16. FOOTER AND BACK-TO-TOP BUTTON */
+
+footer {
+  padding: 50px 0 25px;
+  color: #777777;
+  background: var(--black-deep);
+}
+
+footer h3 {
+  color: var(--white);
+}
+
+footer h5 {
+  color: var(--gold);
+}
+
+footer a {
+  display: block;
+  margin-bottom: 7px;
+  color: #777777;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+.socials a {
+  display: inline-block;
+  margin-right: 14px;
+  font-size: 20px;
+}
+
+#toTop {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1500;
+  width: 44px;
+  height: 44px;
+  color: #111111;
+  background: var(--gold);
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+/* Class added by JavaScript after scrolling down */
+#toTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 17. FADE-IN EFFECT
+   Items with "reveal" start hidden and fade in when JavaScript adds "visible".
+   They are only hidden when JavaScript is working ("js-ready" is set on the body). */
+
+.js-ready .reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.js-ready .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 18. RESPONSIVE */
+
+@media (max-width: 991px) {
+  .hero {
+    align-items: flex-end;
+    padding-bottom: 90px;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.92) 25%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  }
+
+  .hero-facts {
+    gap: 22px;
+  }
+
+  .journey {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --section-padding: 70px;
+  }
+
+  .section-title h2 {
+    font-size: 30px;
+  }
+
+  .journey {
+    grid-template-columns: 1fr;
+  }
+
+  .gear-box {
+    height: 320px;
+  }
+
+  .review-card {
+    min-height: 0;
+    padding: 35px 24px 25px;
+  }
+
+  .review-text {
+    font-size: 18px;
+  }
+
+  .verified {
+    margin-left: 0;
+  }
+
+  .testimonials::before {
+    font-size: 260px;
+  }
+}
+
+/* Respect visitors who turn off animations in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .js-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

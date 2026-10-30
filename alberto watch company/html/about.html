@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Alberto | The Art of Time</title>
+
+    <meta
+      name="description"
+      content="Discover Alberto Watch Company, where timeless design, precision craftsmanship, and exceptional service come together."
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/about.css" />
+
+    <!-- MOVING LUXURY BACKGROUND -->
+    <style>
+      .hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background: #080808;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -8%;
+        z-index: -2;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.88),
+            rgba(0, 0, 0, 0.42),
+            rgba(0, 0, 0, 0.75)
+          ),
+          url("../images/about img.jpg") center / cover no-repeat;
+        animation: luxuryMove 20s ease-in-out infinite alternate;
+        will-change: transform;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.7),
+          transparent 55%,
+          rgba(0, 0, 0, 0.3)
+        );
+        pointer-events: none;
+      }
+
+      .hero-content,
+      .hero-bottom,
+      .hero-number {
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes luxuryMove {
+        0% {
+          transform: scale(1) translateX(0);
+          background-position: 45% center;
+        }
+        100% {
+          transform: scale(1.15) translateX(-1%);
+          background-position: 60% center;
+        }
+      }
+
+      /* Matching animated background for the philosophy section */
+      .statement-section {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background: #080808;
+      }
+
+      .statement-section::before {
+        content: "";
+        position: absolute;
+        inset: -8%;
+        z-index: -2;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.84)),
+          url("../images/about img.jpg") center / cover no-repeat;
+        animation: statementMove 24s ease-in-out infinite alternate;
+      }
+
+      .statement-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(190, 151, 83, 0.12),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .statement-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes statementMove {
+        from {
+          transform: scale(1);
+          background-position: 55% center;
+        }
+        to {
+          transform: scale(1.12);
+          background-position: 40% center;
+        }
+      }
+
+      /* Keep the motion gentle on mobile */
+      @media (max-width: 768px) {
+        .hero::before {
+          animation-duration: 26s;
+        }
+
+        .statement-section::before {
+          animation-duration: 30s;
+        }
+      }
+
+      /* Respect reduced-motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        .hero::before,
+        .statement-section::before {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+<!-- navbar -->
+  <body>
+   <nav class="navbar navbar-expand-lg navbar-dark main-bar">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">
+            <i class="bi bi-watch"></i>
+            ALBERTO
+            <small>WATCH COMPANY</small>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#siteLinks"
+            aria-label="Toggle website pages"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="siteLinks">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="technology.html">Technology</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <!-- HERO WITH MOVING BACKGROUND -->
+    <header class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content container">
+        <div class="hero-line"></div>
+        <p class="eyebrow">OUR HERITAGE · OUR PASSION</p>
+
+        <h1>
+          More Than<br />
+          A <span>Moment.</span>
+        </h1>
+
+        <p class="hero-description">
+          A story of precision, timeless design, and the moments that define us.
+        </p>
+
+        <a href="#our-story" class="gold-button">
+          DISCOVER OUR STORY
+          <i class="bi bi-arrow-down-right"></i>
+        </a>
+      </div>
+
+      <div class="hero-bottom">
+        <span>SCROLL TO EXPLORE <i class="bi bi-arrow-down"></i></span>
+      </div>
+
+      <div class="hero-number">01 / 04</div>
+    </header>
+
+    <!-- INTRODUCTION -->
+    <section class="intro-section" id="our-story">
+      <div class="container">
+        <div class="section-top">
+          <span class="section-label">01 — THE BEGINNING</span>
+          <span class="section-line"></span>
+          <span class="section-label">OUR STORY</span>
+        </div>
+
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="story-image-wrap">
+              <img
+                src="../images/about img.jpg"
+                class="story-image"
+                alt="Luxury timepiece representing Alberto's watchmaking heritage"
+                loading="lazy"
+              />
+
+              <div class="image-caption">
+                <span>TIMELESS BY DESIGN</span>
+                <i class="bi bi-plus-lg"></i>
+              </div>
+              <div class="image-frame"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="story-content">
+              <p class="gold-text">ESTABLISHED 1985</p>
+
+              <h2>
+                A Legacy Built<br />
+                <span>Over Time.</span>
+              </h2>
+
+              <p class="story-lead">
+                Time moves forward. Great craftsmanship makes every moment worth
+                remembering.
+              </p>
+
+              <p class="body-text">
+                Alberto Watch Company is dedicated to the world of fine
+                timepieces, bringing together distinctive design, careful
+                craftsmanship, watch repair, appraisal, and personal service.
+              </p>
+
+              <p class="body-text">
+                Our philosophy is simple: every watch should represent more than
+                the hours it measures. It should reflect individuality,
+                precision, and an appreciation for lasting quality.
+              </p>
+
+              <a href="product.html" class="text-link">
+                EXPLORE OUR COLLECTION
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND STATEMENT WITH MATCHING MOTION -->
+    <section class="statement-section">
+      <div class="statement-overlay"></div>
+
+      <div class="container statement-content">
+        <i class="bi bi-watch statement-icon"></i>
+        <p class="eyebrow">THE ALBERTO PHILOSOPHY</p>
+
+        <h2>
+          Every Second Has<br />
+          <span>Its Own Story.</span>
+        </h2>
+
+        <p>Designed to be appreciated today. Made to be treasured tomorrow.</p>
+
+        <div class="statement-divider"></div>
+      </div>
+    </section>
+
+    <!-- OUR VALUES -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-top">
+          <span class="section-label">02 — WHAT DEFINES US</span>
+          <span class="section-line"></span>
+          <span class="section-label">OUR VALUES</span>
+        </div>
+
+        <div class="values-heading">
+          <div>
+            <p class="gold-text">THE ALBERTO STANDARD</p>
+            <h2>
+              Built On Principles.<br />
+              <span>Driven By Passion.</span>
+            </h2>
+          </div>
+
+          <p class="values-intro">
+            The details matter. The experience matters. And the trust you place
+            in us matters most.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="value-card">
+              <span class="card-number">01</span>
+              <div class="value-icon"><i class="bi bi-gem"></i></div>
+              <h3>Exceptional Quality</h3>
+              <p>
+                We value thoughtful design, quality materials, and attention to
+                the smallest details.
+              </p>
+              <div class="card-bottom">
+                <span>QUALITY FIRST</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="value-card">
+              <span class="card-number">02</span>
+              <div class="value-icon"><i class="bi bi-shield-check"></i></div>
+              <h3>Trust &amp; Integrity</h3>
+              <p>
+                Honest guidance and attentive service are at the heart of every
+                customer relationship.
+              </p>
+              <div class="card-bottom">
+                <span>BUILT ON TRUST</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="value-card">
+              <span class="card-number">03</span>
+              <div class="value-icon"><i class="bi bi-stars"></i></div>
+              <h3>Lasting Excellence</h3>
+              <p>
+                We continually work to make every interaction as considered as
+                the timepieces we celebrate.
+              </p>
+              <div class="card-bottom">
+                <span>ALWAYS REFINING</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRAFTSMANSHIP -->
+    <section class="craft-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p class="gold-text">PRECISION IN EVERY DETAIL</p>
+
+            <h2>
+              The Beauty Is<br />
+              In The <span>Details.</span>
+            </h2>
+
+            <p class="craft-description">
+              A great timepiece brings engineering and artistry together. From
+              its movement to its finishing, every detail contributes to the
+              experience of wearing it.
+            </p>
+
+            <div class="craft-points">
+              <div>
+                <i class="bi bi-check2"></i><span>Attention to detail</span>
+              </div>
+              <div>
+                <i class="bi bi-check2"></i><span>Careful watch servicing</span>
+              </div>
+              <div>
+                <i class="bi bi-check2"></i><span>Personal customer care</span>
+              </div>
+            </div>
+
+            <!-- <a href="support.html" class="gold-button">
+                        DISCOVER OUR SERVICES
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a> -->
+          </div>
+
+          <div class="col-lg-6">
+            <div class="craft-visual">
+              <div class="craft-circle circle-one"></div>
+              <div class="craft-circle circle-two"></div>
+
+              <div class="craft-center">
+                <i class="bi bi-watch"></i>
+                <span>PRECISION</span>
+                <small>WITHOUT COMPROMISE</small>
+              </div>
+
+              <span class="orbit-label orbit-top">CRAFTSMANSHIP</span>
+              <span class="orbit-label orbit-bottom">TIMELESS DESIGN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-section">
+      <div class="container">
+        <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+
+        <h2>
+          Find A Watch That<br />
+          <span>Feels Like You.</span>
+        </h2>
+
+        <p>
+          Discover a world where personal style meets a timeless appreciation
+          for craftsmanship.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="product.html" class="gold-button">
+            EXPLORE COLLECTIONS
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a href="contact.html" class="outline-button">GET IN TOUCH</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <a class="footer-brand" href="../index.html">
+              <i class="bi bi-watch"></i> ALBERTO
+            </a>
+
+            <p class="footer-tagline">THE ART OF TIME.</p>
+
+            <p class="footer-description">
+              Celebrating the beauty of time through thoughtful design,
+              craftsmanship, and service.
+            </p>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h4>EXPLORE</h4>
+            <a href="../index.html">Home</a>
+            <a href="product.html">Products</a>
+            <a href="technology.html">Technology</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h4>ALBERTO</h4>
+            <a href="about.html">Our Story</a>
+            <a href="store.html">Store Locator</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="col-lg-3">
+            <h4>OUR PHILOSOPHY</h4>
+            <p class="footer-quote">"Make every moment count."</p>
+            <span class="footer-small">CRAFTED FOR YOUR JOURNEY</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            © <span id="year">2026</span> Alberto Watch Company. All rights
+            reserved.
+          </p>
+
+          <a href="#mainNavbar"> BACK TO TOP <i class="bi bi-arrow-up"></i> </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BOTTOM LIVE BAR -->
+    <div class="ticker">
+      <div class="ticker-label">
+        <span class="live-dot"></span>
+        ALBERTO
+      </div>
+
+      <div class="ticker-text">
+        <span id="dateTime">Loading time...</span>
+        <span class="ticker-separator">◆</span>
+        <span>THE ART OF TIME</span>
+        <span class="ticker-separator">◆</span>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/about.js"></script>
+  </body>
+</html>

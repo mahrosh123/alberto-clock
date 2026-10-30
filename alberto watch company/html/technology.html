@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alberto Watch Company | Technology</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/technology.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <i class="bi bi-watch"></i>
+          ALBERTO
+          <small>WATCH COMPANY</small>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+          aria-label="Toggle menu"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="product.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="technology.html">Technology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page header -->
+    <header class="page-header">
+      <div class="container text-center">
+        <p class="gold-text">ALBERTO WATCH COMPANY</p>
+        <h1>Watch <span>Technology</span></h1>
+        <p class="lead-text">
+          Learn how a watch keeps time, what it is made of, and how to look
+          after it.
+        </p>
+      </div>
+    </header>
+
+    <!-- the four types of movement -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>MOVEMENTS</span>
+          <h2>The Heart Of <strong>Every Watch</strong></h2>
+          <p>
+            The movement is the engine inside a watch. Choose a type to see how
+            it works.
+          </p>
+        </div>
+
+        <div class="tab-buttons reveal">
+          <button class="tab-btn active" data-tab="mechanical">
+            Mechanical
+          </button>
+          <button class="tab-btn" data-tab="automatic">Automatic</button>
+          <button class="tab-btn" data-tab="quartz">Quartz</button>
+          <button class="tab-btn" data-tab="smart">Smart</button>
+        </div>
+
+        <div class="tab-area reveal">
+          <div class="tab-panel active" data-panel="mechanical">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-6">
+                <i class="bi bi-gear-wide-connected panel-icon"></i>
+                <h3>Mechanical (hand-wound)</h3>
+                <p>
+                  A coiled spring called the mainspring stores energy. You wind
+                  it by hand every day or two, and tiny gears release that
+                  energy slowly to move the hands. Many collectors love it for
+                  the craftsmanship and the daily winding ritual.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <dl class="spec-list">
+                  <div>
+                    <dt>Power</dt>
+                    <dd>Hand-wound mainspring</dd>
+                  </div>
+                  <div>
+                    <dt>Accuracy</dt>
+                    <dd>About 5 to 15 seconds per day</dd>
+                  </div>
+                  <div>
+                    <dt>Service</dt>
+                    <dd>Every 5 years</dd>
+                  </div>
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>Collectors and traditionalists</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="automatic">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-6">
+                <i class="bi bi-arrow-repeat panel-icon"></i>
+                <h3>Automatic (self-winding)</h3>
+                <p>
+                  It works like a mechanical watch, but a weight called a rotor
+                  swings as you move your wrist and winds the mainspring for
+                  you. Wear it daily and it never needs manual winding.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <dl class="spec-list">
+                  <div>
+                    <dt>Power</dt>
+                    <dd>Wrist movement</dd>
+                  </div>
+                  <div>
+                    <dt>Accuracy</dt>
+                    <dd>About 5 to 15 seconds per day</dd>
+                  </div>
+                  <div>
+                    <dt>Service</dt>
+                    <dd>Every 5 years</dd>
+                  </div>
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>Daily luxury wear</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="quartz">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-6">
+                <i class="bi bi-lightning-charge panel-icon"></i>
+                <h3>Quartz (battery)</h3>
+                <p>
+                  A battery sends a small current through a quartz crystal. The
+                  crystal vibrates 32,768 times every second, which keeps time
+                  very steady and needs almost no care.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <dl class="spec-list">
+                  <div>
+                    <dt>Power</dt>
+                    <dd>Battery</dd>
+                  </div>
+                  <div>
+                    <dt>Accuracy</dt>
+                    <dd>About 15 seconds per month</dd>
+                  </div>
+                  <div>
+                    <dt>Service</dt>
+                    <dd>Battery change every 2 to 3 years</dd>
+                  </div>
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>Accuracy and value</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="smart">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-6">
+                <i class="bi bi-smartwatch panel-icon"></i>
+                <h3>Smart (digital)</h3>
+                <p>
+                  A processor, touch screen and sensors track steps, heart rate
+                  and sleep, show your notifications, and set the time
+                  automatically from your phone.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <dl class="spec-list">
+                  <div>
+                    <dt>Power</dt>
+                    <dd>Rechargeable battery</dd>
+                  </div>
+                  <div>
+                    <dt>Accuracy</dt>
+                    <dd>Always synced with your phone</dd>
+                  </div>
+                  <div>
+                    <dt>Service</dt>
+                    <dd>Battery health check every 2 years</dd>
+                  </div>
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>Fitness and connectivity</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- how a mechanical watch works (dark section) -->
+    <section class="dark-section">
+      <div class="container">
+        <div class="section-title light reveal">
+          <span>INSIDE THE CASE</span>
+          <h2>How A Mechanical <strong>Watch Works</strong></h2>
+          <p>
+            Five parts work together in order. Click a step, or watch it move on
+            its own.
+          </p>
+        </div>
+
+        <div class="step-list reveal">
+          <button class="step-btn active" data-step="1">
+            <span>1</span> Mainspring
+          </button>
+          <button class="step-btn" data-step="2">
+            <span>2</span> Gear train
+          </button>
+          <button class="step-btn" data-step="3">
+            <span>3</span> Escapement
+          </button>
+          <button class="step-btn" data-step="4">
+            <span>4</span> Balance wheel
+          </button>
+          <button class="step-btn" data-step="5"><span>5</span> Hands</button>
+        </div>
+
+        <div class="step-detail-area reveal">
+          <div class="step-detail active" data-detail="1">
+            <i class="bi bi-gear-wide gear-spin"></i>
+            <h3>Mainspring</h3>
+            <p>
+              A tightly coiled metal spring stores the energy. Winding the
+              crown, or the rotor in an automatic watch, tightens it.
+            </p>
+          </div>
+
+          <div class="step-detail" data-detail="2">
+            <i class="bi bi-gear-wide-connected gear-spin"></i>
+            <h3>Gear train</h3>
+            <p>
+              A chain of small gears carries the energy from the spring and
+              slows it down, so the hands move at the right speed.
+            </p>
+          </div>
+
+          <div class="step-detail" data-detail="3">
+            <i class="bi bi-lock gear-spin"></i>
+            <h3>Escapement</h3>
+            <p>
+              This part lets the energy out in tiny, equal steps. It makes the
+              ticking sound you hear in a mechanical watch.
+            </p>
+          </div>
+
+          <div class="step-detail" data-detail="4">
+            <i class="bi bi-arrow-repeat gear-spin"></i>
+            <h3>Balance wheel</h3>
+            <p>
+              A small wheel swings back and forth, usually about four times a
+              second. It sets the rhythm that controls the accuracy of the
+              watch.
+            </p>
+          </div>
+
+          <div class="step-detail" data-detail="5">
+            <i class="bi bi-clock gear-spin"></i>
+            <h3>Hands and dial</h3>
+            <p>
+              The last gears turn the hour, minute and second hands, so you can
+              read the time on the dial.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- comparison table -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>COMPARE</span>
+          <h2>Which Type Is <strong>Right For You?</strong></h2>
+          <p>Move your mouse over a column to highlight it.</p>
+        </div>
+
+        <div class="table-wrap reveal">
+          <table class="compare-table" id="compareTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Mechanical</th>
+                <th>Automatic</th>
+                <th>Quartz</th>
+                <th>Smart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Power source</td>
+                <td>Hand winding</td>
+                <td>Wrist movement</td>
+                <td>Battery</td>
+                <td>Rechargeable battery</td>
+              </tr>
+              <tr>
+                <td>Accuracy</td>
+                <td>5 to 15 sec a day</td>
+                <td>5 to 15 sec a day</td>
+                <td>15 sec a month</td>
+                <td>Synced with phone</td>
+              </tr>
+              <tr>
+                <td>Care needed</td>
+                <td>Service every 5 years</td>
+                <td>Service every 5 years</td>
+                <td>New battery every 2 to 3 years</td>
+                <td>Charge every 1 to 7 days</td>
+              </tr>
+              <tr>
+                <td>Expected life</td>
+                <td>Generations</td>
+                <td>Generations</td>
+                <td>10 years or more</td>
+                <td>3 to 5 years</td>
+              </tr>
+              <tr>
+                <td>Best for</td>
+                <td>Collectors</td>
+                <td>Daily luxury</td>
+                <td>Value and accuracy</td>
+                <td>Fitness and alerts</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- materials -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>MATERIALS</span>
+          <h2>Built From <strong>Quality Parts</strong></h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <i class="bi bi-gem"></i>
+              <h4>Sapphire crystal</h4>
+              <p>
+                The glass over the dial is extremely hard, rating 9 on the Mohs
+                scale, so everyday scratches are rare.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <i class="bi bi-shield-check"></i>
+              <h4>316L stainless steel</h4>
+              <p>
+                A strong steel that resists rust and corrosion, used for cases
+                and bracelets.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <i class="bi bi-circle"></i>
+              <h4>Ceramic bezel</h4>
+              <p>
+                The ring around the dial keeps its color in sunlight and resists
+                scratches.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <i class="bi bi-feather"></i>
+              <h4>Titanium</h4>
+              <p>
+                Much lighter than steel and gentle on the skin, ideal for large
+                watches worn all day.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <i class="bi bi-brightness-high"></i>
+              <h4>Luminous markers</h4>
+              <p>
+                A special coating on the hands and hour marks glows in the dark
+                so you can read the time at night.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <i class="bi bi-bag-heart"></i>
+              <h4>Leather and rubber straps</h4>
+              <p>
+                Choose soft leather for dress watches or rubber for sport and
+                swimming.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--water resistance (dark section) -->
+    <section class="dark-section">
+      <div class="container">
+        <div class="section-title light reveal">
+          <span>WATER RESISTANCE</span>
+          <h2>What Can Your Watch <strong>Handle?</strong></h2>
+          <p>
+            Pick the rating printed on the watch to see what it is safe for.
+          </p>
+        </div>
+
+        <div class="depth-buttons reveal">
+          <button class="depth-btn active" data-depth="30">30 m</button>
+          <button class="depth-btn" data-depth="50">50 m</button>
+          <button class="depth-btn" data-depth="100">100 m</button>
+          <button class="depth-btn" data-depth="200">200 m</button>
+          <button class="depth-btn" data-depth="300">300 m</button>
+        </div>
+
+        <div class="activity-list reveal">
+          <div class="activity" data-min="30">
+            <span>Rain and splashes</span><span class="status"></span>
+          </div>
+          <div class="activity" data-min="50">
+            <span>Swimming in a pool</span><span class="status"></span>
+          </div>
+          <div class="activity" data-min="100">
+            <span>Snorkeling</span><span class="status"></span>
+          </div>
+          <div class="activity" data-min="200">
+            <span>Scuba diving</span><span class="status"></span>
+          </div>
+          <div class="activity" data-min="300">
+            <span>Deep diving</span><span class="status"></span>
+          </div>
+          <p class="activity-note">
+            These ratings are tested in still water. Avoid hot showers and
+            saunas, because heat and steam can damage the seals.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- service reminder -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>CARE</span>
+          <h2>Service <strong>Reminder</strong></h2>
+          <p>Find out if your watch is due for a check.</p>
+        </div>
+
+        <form class="service-form reveal" id="serviceForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="movementType">Movement type</label>
+              <select class="form-select" id="movementType">
+                <option value="5">Mechanical</option>
+                <option value="5">Automatic</option>
+                <option value="3">Quartz</option>
+                <option value="2">Smart</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label for="lastService">Year bought or last serviced</label>
+              <input
+                class="form-control"
+                type="number"
+                id="lastService"
+                placeholder="For example 2021"
+              />
+            </div>
+          </div>
+
+          <button class="btn btn-gold w-100 mt-3" type="submit">
+            Check My Watch
+          </button>
+          <p class="service-result d-none" id="serviceResult"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section 7: questions -->
+    <section class="section section-white">
+      <div class="container narrow">
+        <div class="section-title reveal">
+          <span>QUESTIONS</span>
+          <h2>Common <strong>Questions</strong></h2>
+        </div>
+
+        <div class="accordion reveal" id="faq">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                data-bs-toggle="collapse"
+                data-bs-target="#q1"
+              >
+                Does an automatic watch stop if I do not wear it?
+              </button>
+            </h2>
+            <div
+              id="q1"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#faq"
+            >
+              <div class="accordion-body">
+                Yes. After the power reserve runs out, usually around 40 hours,
+                it stops. Wind it by hand or wear it for a while and set the
+                time again.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#q2"
+              >
+                Why does a quartz watch tick once per second?
+              </button>
+            </h2>
+            <div
+              id="q2"
+              class="accordion-collapse collapse"
+              data-bs-parent="#faq"
+            >
+              <div class="accordion-body">
+                The battery sends one pulse each second to a small motor that
+                moves the second hand a single step.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#q3"
+              >
+                Should magnets be kept away from my watch?
+              </button>
+            </h2>
+            <div
+              id="q3"
+              class="accordion-collapse collapse"
+              data-bs-parent="#faq"
+            >
+              <div class="accordion-body">
+                Yes. Strong magnets, such as those in speakers and phone cases,
+                can make a mechanical watch run fast. If that happens, a
+                watchmaker can demagnetize it quickly.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#q4"
+              >
+                Can Alberto Watch Company service my watch?
+              </button>
+            </h2>
+            <div
+              id="q4"
+              class="accordion-collapse collapse"
+              data-bs-parent="#faq"
+            >
+              <div class="accordion-body">
+                Yes. We offer repair, servicing and appraisal. Visit the Contact
+                page to arrange a visit.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta">
+      <div class="container text-center">
+        <h2>Ready To Find Your Watch?</h2>
+        <p>Browse our full collection of luxury, vintage and smart watches.</p>
+        <a href="product.html" class="btn btn-gold">View Products</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>ALBERTO</h3>
+            <p>Timeless craftsmanship. Modern precision.</p>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <a href="../index.html">Home</a>
+            <a href="product.html">Products</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="col-md-4">
+            <h5>Contact</h5>
+            <p>Karachi, Pakistan</p>
+            <p>+92 21 111 555 555</p>
+            <p>info@albertowatches.com</p>
+          </div>
+        </div>
+
+        <hr />
+        <p class="text-center">
+          © 2026 Alberto Watch Company. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/technology.js"></script>
+  </body>
+</html>
